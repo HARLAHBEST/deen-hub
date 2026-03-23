@@ -25,6 +25,11 @@ export async function fetchAllItems() {
   return data;
 }
 
+export async function createItem(payload) {
+  const { data } = await api.post("/items", payload);
+  return data;
+}
+
 export async function loginAdmin(email, password) {
   const { data } = await api.post("/auth/login", { email, password });
   return data;
@@ -37,6 +42,16 @@ export async function seedAdmin() {
 
 export async function updateItem(uid, payload) {
   const { data } = await api.patch(`/items/${encodeURIComponent(uid)}`, payload);
+  return data;
+}
+
+export async function deleteItem(uid) {
+  const { data } = await api.delete(`/items/${encodeURIComponent(uid)}`);
+  return data;
+}
+
+export async function importFacebookItems(items) {
+  const { data } = await api.post("/items/import/facebook", { items });
   return data;
 }
 
