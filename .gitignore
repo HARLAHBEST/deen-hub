@@ -1,0 +1,16 @@
+./.env
+./node_modules
+./dist
+./.env.example
+./server/.env   
+./server/node_modules
+./server/dist   
+./server/.env.example
+./client/node_modules
+./client/dist
+./.DS_Store
+./coverage
+./logs
+./idea
+./.vscode
+./.env.local
