@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deen's Daily Hub - Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/original-style.css">
+</head>
+<body>
+<div class="topbar">Admin Dashboard - <a href="/" style="color:#f0a500">Back to Store</a></div>
+
+<div class="admin-panel open" id="adminPanel">
+  <div class="ap-wrap">
+    <div class="ap-hdr">
+      <div class="ap-title">📷 Deen's <span>Admin</span></div>
+      <a class="ap-close" href="/" style="text-decoration:none">←</a>
+    </div>
+
+    <div class="pw-screen" id="pwScreen">
+      <div style="font-size:44px">🔐</div>
+      <h2>Admin Access</h2>
+      <p>Enter your password to manage photos, prices and items</p>
+      <div class="pw-row">
+        <input type="password" id="pwInput" placeholder="Password">
+        <button id="pwBtn">Enter</button>
+      </div>
+      <div class="pw-err" id="pwErr"></div>
+      <p style="margin-top:6px;font-size:11px">Default: <b style="color:rgba(255,255,255,.55)">deens2026</b></p>
+    </div>
+
+    <div id="adminMain" style="display:none">
+      <div class="ap-tabs">
+        <button class="ap-tab on" data-tab="tabPhotos">📷 Photos</button>
+        <button class="ap-tab" data-tab="tabPrices">💰 Prices</button>
+        <button class="ap-tab" data-tab="tabHot">🔥 Hot Deals</button>
+        <button class="ap-tab" data-tab="tabStock">📦 Stock Status</button>
+        <button class="ap-tab" data-tab="tabSettings">⚙ Settings</button>
+      </div>
+
+      <div class="ap-body">
+        <div class="ap-section on" id="tabPhotos">
+          <p style="font-size:11px;color:rgba(255,255,255,.4);margin-bottom:14px">
+            Upload photos for hero images, category cards, and individual items.
+          </p>
+          <div class="ap-lbl">Hero Images</div>
+          <div class="ap-photo-grid" id="apHeroGrid"></div>
+          <div class="ap-lbl" style="margin-top:16px">Category Card Images</div>
+          <div class="ap-photo-grid" id="apCatGrid"></div>
+          <div class="ap-lbl" style="margin-top:16px">Item Photos</div>
+          <div class="ap-photo-grid" id="apItemGrid"></div>
+        </div>
+
+        <div class="ap-section" id="tabPrices">
+          <p style="font-size:11px;color:rgba(255,255,255,.4);margin-bottom:14px">
+            Set a selling price for any item.
+          </p>
+          <div id="apPricesList"></div>
+        </div>
+
+        <div class="ap-section" id="tabHot">
+          <p style="font-size:11px;color:rgba(255,255,255,.4);margin-bottom:14px">
+            Mark items to appear in Hot Deals.
+          </p>
+          <div id="apHotList"></div>
+        </div>
+
+        <div class="ap-section" id="tabStock">
+          <p style="font-size:11px;color:rgba(255,255,255,.4);margin-bottom:14px">
+            Stock status: <b id="syncStatus" style="color:var(--gold)">loading...</b>
+          </p>
+          <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap">
+            <button class="ap-btn ap-gold" id="syncBtn">↻ Sync from Stock App</button>
+          </div>
+          <div id="apStatusList"></div>
+        </div>
+
+        <div class="ap-section" id="tabSettings">
+          <div class="ap-lbl">Contact Details</div>
+          <div class="ap-row2">
+            <div>
+              <div class="ap-lbl">WhatsApp Number</div>
+              <input class="ap-inp" id="setWa" placeholder="+14385403074">
+            </div>
+            <div>
+              <div class="ap-lbl">Facebook Messenger URL</div>
+              <input class="ap-inp" id="setFb" placeholder="https://m.me/yourpage">
+            </div>
+          </div>
+          <div class="ap-lbl" style="margin-top:10px">Email Address</div>
+          <input class="ap-inp" id="setEmail" placeholder="zydtech1@gmail.com">
+          <div class="ap-lbl" style="margin-top:14px">Change Admin Password</div>
+          <div class="ap-row2">
+            <input class="ap-inp" id="setPw1" type="password" placeholder="New password">
+            <input class="ap-inp" id="setPw2" type="password" placeholder="Confirm password">
+          </div>
+          <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">
+            <button class="ap-btn ap-gold" id="saveSettingsBtn">Save Settings</button>
+            <button class="ap-btn ap-red" id="resetDataBtn">Reset Photos & Custom Data</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<input type="file" id="fileInput" accept="image/*" style="display:none">
+<div class="ap-toast" id="apToast"></div>
+
+<script src="/original-app.js"></script>
+<script>
+  document.body.classList.add('admin-mode');
+</script>
+</body>
+</html>
