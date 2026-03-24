@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap");
 
 :root {
   --bg: #f5f7fb;
@@ -14,6 +14,8 @@
   --ink: #041226;
   --border: #dce4ef;
   --ring: #84a8ff;
+  --font-body: "Outfit", sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
 }
 
 * {
@@ -22,7 +24,7 @@
 
 body {
   margin: 0;
-  font-family: "DM Sans", sans-serif;
+  font-family: var(--font-body);
   line-height: 1.4;
   background: var(--bg);
   color: var(--text);
@@ -77,12 +79,12 @@ body {
   color: var(--amber);
   display: grid;
   place-items: center;
-  font-family: "Syne", sans-serif;
+  font-family: var(--font-display);
   font-weight: 800;
 }
 
 .logo-name {
-  font-family: "Syne", sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 15px;
   color: var(--navy);
@@ -137,7 +139,7 @@ body {
 }
 
 .hero h1 {
-  font-family: "Syne", sans-serif;
+  font-family: var(--font-display);
   margin: 0 0 12px;
   font-size: clamp(1.8rem, 4vw, 3rem);
   line-height: 1.08;
@@ -182,7 +184,7 @@ body {
 }
 
 .stat-card strong {
-  font-family: "Syne", sans-serif;
+  font-family: var(--font-display);
   font-size: clamp(1.2rem, 2.6vw, 1.8rem);
   color: #fff;
 }
@@ -242,7 +244,7 @@ body {
 .insight-card strong {
   display: block;
   margin-top: 6px;
-  font-family: "Syne", sans-serif;
+  font-family: var(--font-display);
   color: var(--navy);
 }
 
@@ -309,7 +311,7 @@ body {
 
 .section-title-row h2 {
   margin: 0;
-  font-family: "Syne", sans-serif;
+  font-family: var(--font-display);
   color: var(--navy);
 }
 
@@ -441,7 +443,7 @@ body {
 }
 
 .admin-page h1 {
-  font-family: "Syne", sans-serif;
+  font-family: var(--font-display);
   margin: 0;
   color: var(--navy);
 }
@@ -492,7 +494,7 @@ body {
 .admin-row input {
   padding: 10px 12px;
   border: 1px solid #c9d6ea;
-  border-radius: 10px;
+  border-radius: 14px;
 }
 
 .admin-kpi-grid {
@@ -511,7 +513,7 @@ body {
 .admin-kpi-grid .panel strong {
   display: block;
   margin-top: 6px;
-  font-family: "Syne", sans-serif;
+  font-family: var(--font-display);
   font-size: 24px;
   color: var(--navy);
 }
@@ -526,7 +528,7 @@ body {
 .chart-panel h2,
 .panel h2 {
   margin: 0 0 8px;
-  font-family: "Syne", sans-serif;
+  font-family: var(--font-display);
   color: var(--navy);
 }
 
@@ -590,13 +592,36 @@ body {
 .admin-row textarea {
   padding: 10px 12px;
   border: 1px solid #c9d6ea;
-  border-radius: 10px;
-  font-family: "DM Sans", sans-serif;
+  border-radius: 14px;
+  font-family: var(--font-body);
 }
 
 .crud-form textarea {
   min-height: 90px;
   grid-column: 1 / -1;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-group-wide {
+  grid-column: 1 / -1;
+}
+
+.field-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--slate);
+}
+
+.field-help {
+  margin: 0;
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.35;
 }
 
 .fb-import {

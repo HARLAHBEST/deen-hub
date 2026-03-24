@@ -6,20 +6,20 @@
 <title>Deen's Daily Hub - Admin</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="/original-style.css">
 </head>
 <body>
-<div class="topbar">Admin Dashboard - <a href="index.html" style="color:#f0a500">Back to Store</a></div>
+<div class="topbar">Admin Dashboard - <a href="/" style="color:#f0a500">Back to Store</a></div>
 
 <div class="admin-panel open" id="adminPanel">
   <div class="ap-wrap">
     <div class="ap-hdr">
-      <div class="ap-title">&#128247; Deen's <span>Admin</span></div>
-      <a class="ap-close" href="index.html" style="text-decoration:none">&#8592;</a>
+      <div class="ap-title">📷 Deen's <span>Admin</span></div>
+      <a class="ap-close" href="/" style="text-decoration:none">←</a>
     </div>
 
     <div class="pw-screen" id="pwScreen">
-      <div style="font-size:44px">&#128274;</div>
+      <div style="font-size:44px">🔐</div>
       <h2>Admin Access</h2>
       <p>Enter your password to manage photos, prices and items</p>
       <div class="pw-row">
@@ -32,11 +32,11 @@
 
     <div id="adminMain" style="display:none">
       <div class="ap-tabs">
-        <button class="ap-tab on" data-tab="tabPhotos">&#128247; Photos</button>
-        <button class="ap-tab" data-tab="tabPrices">&#128176; Prices</button>
-        <button class="ap-tab" data-tab="tabHot">&#128293; Hot Deals</button>
-        <button class="ap-tab" data-tab="tabStock">&#128230; Stock Status</button>
-        <button class="ap-tab" data-tab="tabSettings">&#9881; Settings</button>
+        <button class="ap-tab on" data-tab="tabPhotos">📷 Photos</button>
+        <button class="ap-tab" data-tab="tabPrices">💰 Prices</button>
+        <button class="ap-tab" data-tab="tabHot">🔥 Hot Deals</button>
+        <button class="ap-tab" data-tab="tabStock">📦 Stock Status</button>
+        <button class="ap-tab" data-tab="tabSettings">⚙ Settings</button>
       </div>
 
       <div class="ap-body">
@@ -71,7 +71,7 @@
             Stock status: <b id="syncStatus" style="color:var(--gold)">loading...</b>
           </p>
           <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap">
-            <button class="ap-btn ap-gold" id="syncBtn">&#8635; Sync from Stock App</button>
+            <button class="ap-btn ap-gold" id="syncBtn">↻ Sync from Stock App</button>
           </div>
           <div id="apStatusList"></div>
         </div>
@@ -97,7 +97,7 @@
           </div>
           <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">
             <button class="ap-btn ap-gold" id="saveSettingsBtn">Save Settings</button>
-            <button class="ap-btn ap-red" id="resetDataBtn">Reset Photos &amp; Custom Data</button>
+            <button class="ap-btn ap-red" id="resetDataBtn">Reset Photos & Custom Data</button>
           </div>
         </div>
       </div>
@@ -108,7 +108,7 @@
 <input type="file" id="fileInput" accept="image/*" style="display:none">
 <div class="ap-toast" id="apToast"></div>
 
-<script src="app.js"></script>
+<script src="/original-app.js"></script>
 <script>
   document.body.classList.add('admin-mode');
 </script>

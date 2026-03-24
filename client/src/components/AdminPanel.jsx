@@ -311,20 +311,34 @@ export default function AdminPanel() {
           <p className="muted">Sign in to manage inventory, settings, and imports.</p>
 
           <form className="admin-login" onSubmit={onLogin}>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Admin email"
-              required
-            />
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Password"
-              required
-            />
+            <div className="field-group">
+              <label className="field-label" htmlFor="admin-email">
+                Admin email
+              </label>
+              <input
+                id="admin-email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="name@example.com"
+                required
+              />
+              <small className="field-help">Use the email for your admin account.</small>
+            </div>
+            <div className="field-group">
+              <label className="field-label" htmlFor="admin-password">
+                Password
+              </label>
+              <input
+                id="admin-password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Enter your password"
+                required
+              />
+              <small className="field-help">Your secure admin password.</small>
+            </div>
             <button className="btn btn-navy" type="submit">
               Login
             </button>
@@ -505,32 +519,132 @@ export default function AdminPanel() {
 
             {activeTab === "create" ? (
               <form className="crud-form" onSubmit={submitCreate}>
-                <input value={createForm.uid} onChange={(e) => updateCreateField("uid", e.target.value)} placeholder="uid" required />
-                <input value={createForm.lot} onChange={(e) => updateCreateField("lot", e.target.value)} placeholder="lot" required />
-                <input value={createForm.inv} onChange={(e) => updateCreateField("inv", e.target.value)} placeholder="invoice" required />
-                <input value={createForm.date} onChange={(e) => updateCreateField("date", e.target.value)} placeholder="date" required />
-                <select value={createForm.cat} onChange={(e) => updateCreateField("cat", e.target.value)}>
-                  {CATEGORIES.map((cat) => (
-                    <option key={cat} value={cat}>
-                      {cat}
-                    </option>
-                  ))}
-                </select>
-                <select value={createForm.status} onChange={(e) => updateCreateField("status", e.target.value)}>
-                  {STATUSES.map((st) => (
-                    <option key={st} value={st}>
-                      {st}
-                    </option>
-                  ))}
-                </select>
-                <input value={createForm.bid} onChange={(e) => updateCreateField("bid", e.target.value)} placeholder="bid" />
-                <input value={createForm.cost} onChange={(e) => updateCreateField("cost", e.target.value)} placeholder="cost" />
-                <input
-                  value={createForm.customPrice}
-                  onChange={(e) => updateCreateField("customPrice", e.target.value)}
-                  placeholder="custom price"
-                />
-                <input value={createForm.photoUrl} onChange={(e) => updateCreateField("photoUrl", e.target.value)} placeholder="photo URL" />
+                <div className="field-group">
+                  <label className="field-label" htmlFor="create-uid">
+                    Item UID
+                  </label>
+                  <input
+                    id="create-uid"
+                    value={createForm.uid}
+                    onChange={(e) => updateCreateField("uid", e.target.value)}
+                    placeholder="Unique item ID"
+                    required
+                  />
+                  <small className="field-help">Unique identifier used to track this item.</small>
+                </div>
+                <div className="field-group">
+                  <label className="field-label" htmlFor="create-lot">
+                    Lot number
+                  </label>
+                  <input
+                    id="create-lot"
+                    value={createForm.lot}
+                    onChange={(e) => updateCreateField("lot", e.target.value)}
+                    placeholder="Lot reference"
+                    required
+                  />
+                  <small className="field-help">Batch or lot reference from supplier.</small>
+                </div>
+                <div className="field-group">
+                  <label className="field-label" htmlFor="create-invoice">
+                    Invoice number
+                  </label>
+                  <input
+                    id="create-invoice"
+                    value={createForm.inv}
+                    onChange={(e) => updateCreateField("inv", e.target.value)}
+                    placeholder="Invoice reference"
+                    required
+                  />
+                  <small className="field-help">Invoice document number for purchase records.</small>
+                </div>
+                <div className="field-group">
+                  <label className="field-label" htmlFor="create-date">
+                    Purchase date
+                  </label>
+                  <input
+                    id="create-date"
+                    value={createForm.date}
+                    onChange={(e) => updateCreateField("date", e.target.value)}
+                    placeholder="YYYY-MM-DD"
+                    required
+                  />
+                  <small className="field-help">Date when the item was acquired.</small>
+                </div>
+                <div className="field-group">
+                  <label className="field-label" htmlFor="create-category">
+                    Category
+                  </label>
+                  <select id="create-category" value={createForm.cat} onChange={(e) => updateCreateField("cat", e.target.value)}>
+                    {CATEGORIES.map((cat) => (
+                      <option key={cat} value={cat}>
+                        {cat}
+                      </option>
+                    ))}
+                  </select>
+                  <small className="field-help">Product type shown in the storefront filter.</small>
+                </div>
+                <div className="field-group">
+                  <label className="field-label" htmlFor="create-status">
+                    Status
+                  </label>
+                  <select id="create-status" value={createForm.status} onChange={(e) => updateCreateField("status", e.target.value)}>
+                    {STATUSES.map((st) => (
+                      <option key={st} value={st}>
+                        {st}
+                      </option>
+                    ))}
+                  </select>
+                  <small className="field-help">Current stock lifecycle state.</small>
+                </div>
+                <div className="field-group">
+                  <label className="field-label" htmlFor="create-bid">
+                    Bid amount
+                  </label>
+                  <input
+                    id="create-bid"
+                    value={createForm.bid}
+                    onChange={(e) => updateCreateField("bid", e.target.value)}
+                    placeholder="0.00"
+                  />
+                  <small className="field-help">Auction bid or initial offer value.</small>
+                </div>
+                <div className="field-group">
+                  <label className="field-label" htmlFor="create-cost">
+                    Cost
+                  </label>
+                  <input
+                    id="create-cost"
+                    value={createForm.cost}
+                    onChange={(e) => updateCreateField("cost", e.target.value)}
+                    placeholder="0.00"
+                  />
+                  <small className="field-help">Internal purchase cost before markup.</small>
+                </div>
+                <div className="field-group">
+                  <label className="field-label" htmlFor="create-custom-price">
+                    Custom price
+                  </label>
+                  <input
+                    id="create-custom-price"
+                    value={createForm.customPrice}
+                    onChange={(e) => updateCreateField("customPrice", e.target.value)}
+                    placeholder="Override selling price"
+                  />
+                  <small className="field-help">Optional manual selling price override.</small>
+                </div>
+                <div className="field-group">
+                  <label className="field-label" htmlFor="create-photo-url">
+                    Photo URL
+                  </label>
+                  <input
+                    id="create-photo-url"
+                    value={createForm.photoUrl}
+                    onChange={(e) => updateCreateField("photoUrl", e.target.value)}
+                    placeholder="https://example.com/image.jpg"
+                  />
+                  <small className="field-help">Public image link used in listings.</small>
+                </div>
                 <label className="hot-toggle">
                   <input
                     type="checkbox"
@@ -539,12 +653,19 @@ export default function AdminPanel() {
                   />
                   Hot deal
                 </label>
-                <textarea
-                  value={createForm.desc}
-                  onChange={(e) => updateCreateField("desc", e.target.value)}
-                  placeholder="description"
-                  required
-                />
+                <div className="field-group field-group-wide">
+                  <label className="field-label" htmlFor="create-description">
+                    Description
+                  </label>
+                  <textarea
+                    id="create-description"
+                    value={createForm.desc}
+                    onChange={(e) => updateCreateField("desc", e.target.value)}
+                    placeholder="Write a clear item description for customers"
+                    required
+                  />
+                  <small className="field-help">Shown to customers on product cards and details.</small>
+                </div>
                 <button className="btn btn-navy" type="submit">
                   Create Item
                 </button>
@@ -596,21 +717,42 @@ export default function AdminPanel() {
 
             {activeTab === "settings" ? (
               <form className="crud-form settings-grid" onSubmit={saveSettings}>
-                <input
-                  value={settingsForm.wa || ""}
-                  onChange={(e) => setSettingsForm((prev) => ({ ...prev, wa: e.target.value }))}
-                  placeholder="WhatsApp number"
-                />
-                <input
-                  value={settingsForm.fb || ""}
-                  onChange={(e) => setSettingsForm((prev) => ({ ...prev, fb: e.target.value }))}
-                  placeholder="Facebook messenger URL"
-                />
-                <input
-                  value={settingsForm.email || ""}
-                  onChange={(e) => setSettingsForm((prev) => ({ ...prev, email: e.target.value }))}
-                  placeholder="Email"
-                />
+                <div className="field-group">
+                  <label className="field-label" htmlFor="settings-wa">
+                    WhatsApp number
+                  </label>
+                  <input
+                    id="settings-wa"
+                    value={settingsForm.wa || ""}
+                    onChange={(e) => setSettingsForm((prev) => ({ ...prev, wa: e.target.value }))}
+                    placeholder="+1 555 000 0000"
+                  />
+                  <small className="field-help">Displayed as the quick WhatsApp contact button.</small>
+                </div>
+                <div className="field-group">
+                  <label className="field-label" htmlFor="settings-fb">
+                    Facebook Messenger URL
+                  </label>
+                  <input
+                    id="settings-fb"
+                    value={settingsForm.fb || ""}
+                    onChange={(e) => setSettingsForm((prev) => ({ ...prev, fb: e.target.value }))}
+                    placeholder="https://m.me/your-page"
+                  />
+                  <small className="field-help">Link used for Messenger contact actions.</small>
+                </div>
+                <div className="field-group">
+                  <label className="field-label" htmlFor="settings-email">
+                    Support email
+                  </label>
+                  <input
+                    id="settings-email"
+                    value={settingsForm.email || ""}
+                    onChange={(e) => setSettingsForm((prev) => ({ ...prev, email: e.target.value }))}
+                    placeholder="support@example.com"
+                  />
+                  <small className="field-help">Public email shown to customers.</small>
+                </div>
                 <button className="btn btn-navy" type="submit">
                   Save Settings
                 </button>
@@ -620,7 +762,12 @@ export default function AdminPanel() {
             {activeTab === "import" ? (
               <form onSubmit={submitFacebookImport}>
                 <p className="muted">Paste Facebook Marketplace export JSON array and import/update in bulk.</p>
+                <label className="field-label" htmlFor="facebook-import-json">
+                  Facebook JSON payload
+                </label>
+                <p className="field-help">Provide a JSON array of marketplace items to create or update in bulk.</p>
                 <textarea
+                  id="facebook-import-json"
                   className="fb-import"
                   value={facebookRaw}
                   onChange={(e) => setFacebookRaw(e.target.value)}

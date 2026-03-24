@@ -10,128 +10,8 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<!-- ════════════════════════════════════════════
-     ADMIN PANEL
-════════════════════════════════════════════ -->
-<div class="admin-panel" id="adminPanel">
-  <div class="ap-wrap">
-    <div class="ap-hdr">
-      <div class="ap-title">&#128247; Deen's <span>Admin</span></div>
-      <button class="ap-close" id="adminCloseBtn">&#215;</button>
-    </div>
-
-    <!-- Password screen -->
-    <div class="pw-screen" id="pwScreen">
-      <div style="font-size:44px">&#128274;</div>
-      <h2>Admin Access</h2>
-      <p>Enter your password to manage photos, prices and items</p>
-      <div class="pw-row">
-        <input type="password" id="pwInput" placeholder="Password">
-        <button id="pwBtn">Enter</button>
-      </div>
-      <div class="pw-err" id="pwErr"></div>
-      <p style="margin-top:6px;font-size:11px">Default: <b style="color:rgba(255,255,255,.55)">deens2026</b></p>
-    </div>
-
-    <!-- Admin main (shown after login) -->
-    <div id="adminMain" style="display:none">
-      <div class="ap-tabs">
-        <button class="ap-tab on" data-tab="tabPhotos">&#128247; Photos</button>
-        <button class="ap-tab" data-tab="tabPrices">&#128176; Prices</button>
-        <button class="ap-tab" data-tab="tabHot">&#128293; Hot Deals</button>
-        <button class="ap-tab" data-tab="tabStock">&#128230; Stock Status</button>
-        <button class="ap-tab" data-tab="tabSettings">&#9881; Settings</button>
-      </div>
-
-      <div class="ap-body">
-
-        <!-- PHOTOS TAB -->
-        <div class="ap-section on" id="tabPhotos">
-          <p style="font-size:11px;color:rgba(255,255,255,.4);margin-bottom:14px">
-            Upload photos for hero images, category cards, and individual items.
-            Take screenshots from megasaversauction.com or use your own photos.
-            Drag &amp; drop also works directly onto item cards on the main page.
-          </p>
-          <div class="ap-lbl">Hero Images (top right of homepage)</div>
-          <div class="ap-photo-grid" id="apHeroGrid"></div>
-          <div class="ap-lbl" style="margin-top:16px">Category Card Images</div>
-          <div class="ap-photo-grid" id="apCatGrid"></div>
-          <div class="ap-lbl" style="margin-top:16px">Item Photos</div>
-          <div class="ap-photo-grid" id="apItemGrid"></div>
-        </div>
-
-        <!-- PRICES TAB -->
-        <div class="ap-section" id="tabPrices">
-          <p style="font-size:11px;color:rgba(255,255,255,.4);margin-bottom:14px">
-            Set a selling price for any item. Leave blank to auto-estimate (~2.5x true cost).
-          </p>
-          <div id="apPricesList"></div>
-        </div>
-
-        <!-- HOT DEALS TAB -->
-        <div class="ap-section" id="tabHot">
-          <p style="font-size:11px;color:rgba(255,255,255,.4);margin-bottom:14px">
-            Check the box to feature an item in the Hot Deals section with a flame badge.
-          </p>
-          <div id="apHotList"></div>
-        </div>
-
-        <!-- STOCK STATUS TAB -->
-        <div class="ap-section" id="tabStock">
-          <p style="font-size:11px;color:rgba(255,255,255,.4);margin-bottom:14px">
-            Items are pulled from the stock tracking app. Status: <b id="syncStatus" style="color:var(--gold)">loading...</b>
-          </p>
-          <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap">
-            <button class="ap-btn ap-gold" id="syncBtn">&#8635; Sync from Stock App</button>
-          </div>
-          <div id="apStatusList"></div>
-          <p style="font-size:10px;color:rgba(255,255,255,.3);margin-top:12px">
-            To mark items as Sold, Lost, or Damaged — open the stock tracking app (deens_daily_hub_v9.html).
-            Both apps share the same browser storage and will sync automatically.
-          </p>
-        </div>
-
-        <!-- SETTINGS TAB -->
-        <div class="ap-section" id="tabSettings">
-          <div class="ap-lbl">Contact Details</div>
-          <div class="ap-row2">
-            <div>
-              <div class="ap-lbl">WhatsApp Number</div>
-              <input class="ap-inp" id="setWa" placeholder="+14385403074">
-            </div>
-            <div>
-              <div class="ap-lbl">Facebook Messenger URL</div>
-              <input class="ap-inp" id="setFb" placeholder="https://m.me/yourpage">
-            </div>
-          </div>
-          <div class="ap-lbl" style="margin-top:10px">Email Address</div>
-          <input class="ap-inp" id="setEmail" placeholder="zydtech1@gmail.com">
-          <div class="ap-lbl" style="margin-top:14px">Change Admin Password</div>
-          <div class="ap-row2">
-            <input class="ap-inp" id="setPw1" type="password" placeholder="New password">
-            <input class="ap-inp" id="setPw2" type="password" placeholder="Confirm password">
-          </div>
-          <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">
-            <button class="ap-btn ap-gold" id="saveSettingsBtn">Save Settings</button>
-            <button class="ap-btn ap-red" id="resetDataBtn">Reset Photos &amp; Custom Data</button>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Hidden file input for photo uploads -->
-<input type="file" id="fileInput" accept="image/*" style="display:none">
-
-<!-- Toast notification -->
-<div class="ap-toast" id="apToast"></div>
-
 <!-- ════════════════════════════════════════════
      PAGE CONTENT
 ════════════════════════════════════════════ -->
@@ -376,8 +256,6 @@
     </div>
   </div>
 </footer>
-
-<a class="admin-fab" href="admin.html" title="Open Admin">&#128247; Admin</a>
 
 <a href="https://wa.me/14385403074" id="fabWa" target="_blank" class="fab" title="Chat on WhatsApp">
   <svg width="25" height="25" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
