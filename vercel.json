@@ -1,9 +1,4 @@
 {
   "buildCommand": "cd server && npm install",
-  "outputDirectory": "server",
-  "functions": {
-    "server/api/**/*.js": {
-      "runtime": "nodejs20.x"
-    }
-  }
+  "outputDirectory": "server"
 }
