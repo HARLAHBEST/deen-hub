@@ -1,17 +1,6 @@
-import env from "./config/env.js";
-import app from "./app.js";
-import { connectDb } from "./db/connect.js";
+// This file is not used in serverless deployment
+// Serverless uses: server/api/_app.js instead
+// For local development, use: node --loader dotenv/config src/dev-server.js
 
-async function start() {
-  try {
-    await connectDb();
-    app.listen(env.port, () => {
-      console.log(`API running on http://localhost:${env.port}`);
-    });
-  } catch (err) {
-    console.error("Failed to start server", err);
-    process.exit(1);
-  }
-}
+console.log("Please run the serverless handler directly or use dev-server.js");
 
-start();

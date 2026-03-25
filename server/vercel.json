@@ -1,8 +1,8 @@
 {
-  "buildCommand": "npm install",
   "functions": {
     "api/**/*.js": {
-      "runtime": "nodejs20.x"
+      "runtime": "nodejs20.x",
+      "maxDuration": 30
     }
   }
 }
