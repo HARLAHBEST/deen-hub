@@ -1,5 +1,5 @@
-import app from "../src/app.js";
-import { connectDb } from "../src/db/connect.js";
+import app from "../server/src/app.js";
+import { connectDb } from "../server/src/db/connect.js";
 
 let dbConnectionPromise;
 
@@ -17,7 +17,6 @@ async function ensureDbConnection() {
 export default async function handler(req, res) {
   try {
     await ensureDbConnection();
-    // Handle the request through Express
     return new Promise((resolve, reject) => {
       app(req, res, (err) => {
         if (err) reject(err);
@@ -29,4 +28,3 @@ export default async function handler(req, res) {
     res.status(500).json({ error: error.message || "Internal server error" });
   }
 }
-

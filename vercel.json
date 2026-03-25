@@ -1,4 +1,8 @@
 {
   "buildCommand": "cd server && npm install",
-  "outputDirectory": "server"
-}
+  "functions": {
+    "api/**/*.js": {
+      "maxDuration": 30
+    }
+  }
+}                                                       
