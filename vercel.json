@@ -1,1 +1,1 @@
-{\n  "rewrites": [\n    { "source": "/admin/(.*)", "destination": "/index.html" },\n    { "source": "/(.*)", "destination": "/index.html" }\n  ]\n}
+{\n  "buildCommand": "cd client && npm run build",\n  "outputDirectory": "client/dist",\n  "rewrites": [\n    { "source": "/admin", "destination": "/index.html" },\n    { "source": "/admin/(.*)", "destination": "/index.html" },\n    { "source": "/:path*", "destination": "/index.html" }\n  ]\n}
