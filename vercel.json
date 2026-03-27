@@ -1,0 +1,1 @@
+{\n  "rewrites": [\n    { "source": "/admin/(.*)", "destination": "/index.html" },\n    { "source": "/(.*)", "destination": "/index.html" }\n  ]\n}
